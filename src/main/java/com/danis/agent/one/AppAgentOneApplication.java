@@ -29,10 +29,12 @@ public class AppAgentOneApplication implements CommandLineRunner {
 		boolean ya = true;
 		
 		while (ya) {
+			System.err.print("id_lesson=");
 			String idLesson= scanner.nextLine();
+			System.err.print("keyCode=");
 			String keycode= scanner.nextLine();
 			
-			keycode = sc.readFile(locationPath.concat(keycode.trim())+".jsp");
+			keycode = sc.readFile(locationPath.concat(keycode.replace("_lesson", "\\lesson"))+".jsp");
 			
 			sc.getEditData(Long.valueOf(idLesson), keycode.trim());
 			
